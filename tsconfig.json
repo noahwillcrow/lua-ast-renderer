@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"module": "commonjs",
+		"outDir": "out",
+		"rootDir": "src",
+		"target": "es6",
+		"strict": true,
+		"noFallthroughCasesInSwitch": true,
+		"strictNullChecks": true,
+		"sourceMap": true,
+		"noUnusedLocals": true,
+		"esModuleInterop": true
+	}
+}

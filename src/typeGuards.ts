@@ -1,81 +1,86 @@
 import lua from "./main";
 
-export function isNilLiteralExpression(node: lua.Node): node is lua.NilLiteralExpression {
-	return node.kind === lua.SyntaxKind.NilLiteralExpression;
+function makeGuard<T extends keyof lua.NodeByKind>(kind: T) {
+	return (node: lua.Node): node is lua.NodeByKind[T] => node.kind === kind;
 }
 
-export function isFalseLiteralExpression(node: lua.Node): node is lua.FalseLiteralExpression {
-	return node.kind === lua.SyntaxKind.FalseLiteralExpression;
+// expressions
+export const isBinaryExpression = makeGuard(lua.SyntaxKind.BinaryExpression);
+export const isCallExpression = makeGuard(lua.SyntaxKind.CallExpression);
+export const isComputedIndexExpression = makeGuard(lua.SyntaxKind.ComputedIndexExpression);
+export const isFalseLiteralExpression = makeGuard(lua.SyntaxKind.FalseLiteral);
+export const isFunctionExpression = makeGuard(lua.SyntaxKind.FunctionExpression);
+export const isIdentifier = makeGuard(lua.SyntaxKind.Identifier);
+export const isMethodCallExpression = makeGuard(lua.SyntaxKind.MethodCallExpression);
+export const isNilLiteralExpression = makeGuard(lua.SyntaxKind.NilLiteral);
+export const isNumberLiteralExpression = makeGuard(lua.SyntaxKind.NumberLiteral);
+export const isParenthesizedExpression = makeGuard(lua.SyntaxKind.ParenthesizedExpression);
+export const isPropertyAccessExpression = makeGuard(lua.SyntaxKind.PropertyAccessExpression);
+export const isStringLiteralExpression = makeGuard(lua.SyntaxKind.StringLiteral);
+export const isTableLiteralExpression = makeGuard(lua.SyntaxKind.TableLiteral);
+export const isTrueLiteralExpression = makeGuard(lua.SyntaxKind.TrueLiteral);
+export const isUnaryExpression = makeGuard(lua.SyntaxKind.UnaryExpression);
+export const isVarArgsLiteral = makeGuard(lua.SyntaxKind.VarArgsLiteral);
+export const isWhileStatement = makeGuard(lua.SyntaxKind.WhileStatement);
+
+const EXPRESSION_KINDS = new Set([
+	lua.SyntaxKind.BinaryExpression,
+	lua.SyntaxKind.CallExpression,
+	lua.SyntaxKind.ComputedIndexExpression,
+	lua.SyntaxKind.FalseLiteral,
+	lua.SyntaxKind.FunctionExpression,
+	lua.SyntaxKind.Identifier,
+	lua.SyntaxKind.MethodCallExpression,
+	lua.SyntaxKind.NilLiteral,
+	lua.SyntaxKind.NumberLiteral,
+	lua.SyntaxKind.ParenthesizedExpression,
+	lua.SyntaxKind.PropertyAccessExpression,
+	lua.SyntaxKind.StringLiteral,
+	lua.SyntaxKind.TableLiteral,
+	lua.SyntaxKind.TrueLiteral,
+	lua.SyntaxKind.UnaryExpression,
+	lua.SyntaxKind.VarArgsLiteral,
+]);
+
+export function isExpression(node: lua.Node): node is lua.Expression {
+	return EXPRESSION_KINDS.has(node.kind);
 }
 
-export function isTrueLiteralExpression(node: lua.Node): node is lua.TrueLiteralExpression {
-	return node.kind === lua.SyntaxKind.TrueLiteralExpression;
+// statements
+export const isBlock = makeGuard(lua.SyntaxKind.Block);
+export const isCallStatement = makeGuard(lua.SyntaxKind.CallStatement);
+export const isDo = makeGuard(lua.SyntaxKind.DoStatement);
+export const isFor = makeGuard(lua.SyntaxKind.ForStatement);
+export const isFunctionDeclaration = makeGuard(lua.SyntaxKind.FunctionDeclaration);
+export const isIfStatement = makeGuard(lua.SyntaxKind.IfStatement);
+export const isNumericFor = makeGuard(lua.SyntaxKind.NumericForStatement);
+export const isReturn = makeGuard(lua.SyntaxKind.ReturnStatement);
+export const isVariableDeclaration = makeGuard(lua.SyntaxKind.VariableDeclaration);
+export const isWhile = makeGuard(lua.SyntaxKind.WhileStatement);
+
+const STATEMENT_KINDS = new Set([
+	lua.SyntaxKind.Block,
+	lua.SyntaxKind.CallStatement,
+	lua.SyntaxKind.DoStatement,
+	lua.SyntaxKind.ForStatement,
+	lua.SyntaxKind.FunctionDeclaration,
+	lua.SyntaxKind.IfStatement,
+	lua.SyntaxKind.NumericForStatement,
+	lua.SyntaxKind.ReturnStatement,
+	lua.SyntaxKind.VariableDeclaration,
+	lua.SyntaxKind.WhileStatement,
+]);
+
+export function isStatement(node: lua.Node): node is lua.Statement {
+	return STATEMENT_KINDS.has(node.kind);
 }
 
-export function isNumberLiteralExpression(node: lua.Node): node is lua.NumberLiteralExpression {
-	return node.kind === lua.SyntaxKind.NumberLiteralExpression;
-}
+// fields
+export const isTableField = makeGuard(lua.SyntaxKind.TableField);
+export const isComputedTableField = makeGuard(lua.SyntaxKind.ComputedTableField);
 
-export function isStringLiteralExpression(node: lua.Node): node is lua.StringLiteralExpression {
-	return node.kind === lua.SyntaxKind.StringLiteralExpression;
-}
+const FIELD_KINDS = new Set([lua.SyntaxKind.TableField, lua.SyntaxKind.ComputedTableField]);
 
-export function isVarArgsExpression(node: lua.Node): node is lua.VarArgsExpression {
-	return node.kind === lua.SyntaxKind.VarArgsExpression;
-}
-
-export function isFunctionExpression(node: lua.Node): node is lua.FunctionExpression {
-	return node.kind === lua.SyntaxKind.FunctionExpression;
-}
-
-export function isTableLiteralExpression(node: lua.Node): node is lua.TableLiteralExpression {
-	return node.kind === lua.SyntaxKind.TableLiteralExpression;
-}
-
-export function isBinaryExpression(node: lua.Node): node is lua.BinaryExpression {
-	return node.kind === lua.SyntaxKind.BinaryExpression;
-}
-
-export function isUnaryExpression(node: lua.Node): node is lua.UnaryExpression {
-	return node.kind === lua.SyntaxKind.UnaryExpression;
-}
-
-export function isCallExpression(node: lua.Node): node is lua.CallExpression {
-	return node.kind === lua.SyntaxKind.CallExpression;
-}
-
-export function isAssignmentStatement(node: lua.Node): node is lua.AssignmentStatement {
-	return node.kind === lua.SyntaxKind.AssignmentStatement;
-}
-
-export function isDoStatement(node: lua.Node): node is lua.DoStatement {
-	return node.kind === lua.SyntaxKind.DoStatement;
-}
-
-export function isExpressionStatement(node: lua.Node): node is lua.ExpressionStatement {
-	return node.kind === lua.SyntaxKind.ExpressionStatement;
-}
-
-export function isForStatement(node: lua.Node): node is lua.ForStatement {
-	return node.kind === lua.SyntaxKind.ForStatement;
-}
-
-export function isFunctionStatement(node: lua.Node): node is lua.FunctionStatement {
-	return node.kind === lua.SyntaxKind.FunctionStatement;
-}
-
-export function isIfStatement(node: lua.Node): node is lua.IfStatement {
-	return node.kind === lua.SyntaxKind.IfStatement;
-}
-
-export function isNumericForStatement(node: lua.Node): node is lua.NumericForStatement {
-	return node.kind === lua.SyntaxKind.NumericForStatement;
-}
-
-export function isReturnStatement(node: lua.Node): node is lua.ReturnStatement {
-	return node.kind === lua.SyntaxKind.ReturnStatement;
-}
-
-export function isWhileStatement(node: lua.Node): node is lua.WhileStatement {
-	return node.kind === lua.SyntaxKind.WhileStatement;
+export function isField(node: lua.Node): node is lua.Field {
+	return FIELD_KINDS.has(node.kind);
 }

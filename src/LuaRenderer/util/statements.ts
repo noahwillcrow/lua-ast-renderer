@@ -4,6 +4,16 @@ import { RenderState } from "../RenderState";
 
 export function renderStatements(state: RenderState, statements: lua.List<lua.Statement>) {
 	let result = "";
-	lua.list.forEach(statements, statement => (result += render(state, statement)));
+
+	let listNode = statements.head;
+	while (listNode !== undefined) {
+		state.pushListNode(listNode);
+
+		result += render(state, listNode.value);
+
+		listNode = listNode.next;
+		state.popListNode();
+	}
+
 	return result;
 }

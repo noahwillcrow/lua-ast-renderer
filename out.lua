@@ -14,6 +14,6 @@ end
 local function foo(bar)
 	local Workspace = game:GetService("Workspace")
 end
-print()
+print();
 (print)()
 -- foobar!

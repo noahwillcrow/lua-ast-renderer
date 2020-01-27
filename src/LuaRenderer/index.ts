@@ -22,6 +22,8 @@ import { renderFunctionDeclaration } from "./statement/functionDeclaration";
 import { renderIfStatement } from "./statement/if";
 import { renderVariableDeclaration } from "./statement/variable";
 import { renderWhileStatement } from "./statement/while";
+import { renderMethodDeclaration } from "./statement/methodDeclaration";
+import { renderComment } from "./statement/comment";
 
 export function render(state: RenderState, node: lua.Node): string {
 	// weird syntax so that it's easy to sort lines
@@ -48,9 +50,11 @@ export function render(state: RenderState, node: lua.Node): string {
 	if (false) return "";
 	else if (lua.isCallStatement(node)) return renderCallStatement(state, node);
 	else if (lua.isFunctionDeclaration(node)) return renderFunctionDeclaration(state, node);
+	else if (lua.isMethodDeclaration(node)) return renderMethodDeclaration(state, node);
 	else if (lua.isVariableDeclaration(node)) return renderVariableDeclaration(state, node);
 	else if (lua.isIfStatement(node)) return renderIfStatement(state, node);
 	else if (lua.isWhileStatement(node)) return renderWhileStatement(state, node);
+	else if (lua.isComment(node)) return renderComment(state, node);
 
 	// fields
 	if (false) return "";

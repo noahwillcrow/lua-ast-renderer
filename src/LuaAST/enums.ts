@@ -29,8 +29,10 @@ export enum SyntaxKind {
 	NumericForStatement,
 	ForStatement,
 	FunctionDeclaration,
+	MethodDeclaration,
 	VariableDeclaration,
 	ReturnStatement,
+	Comment,
 }
 
 // fields

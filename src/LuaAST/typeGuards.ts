@@ -85,8 +85,10 @@ export const isIfStatement = makeGuard(lua.SyntaxKind.IfStatement);
 export const isNumericForStatement = makeGuard(lua.SyntaxKind.NumericForStatement);
 export const isForStatement = makeGuard(lua.SyntaxKind.ForStatement);
 export const isFunctionDeclaration = makeGuard(lua.SyntaxKind.FunctionDeclaration);
+export const isMethodDeclaration = makeGuard(lua.SyntaxKind.MethodDeclaration);
 export const isVariableDeclaration = makeGuard(lua.SyntaxKind.VariableDeclaration);
 export const isReturnStatement = makeGuard(lua.SyntaxKind.ReturnStatement);
+export const isComment = makeGuard(lua.SyntaxKind.Comment);
 
 // enforces set has at least one of every key in lua.StatementByKind
 const STATEMENT_KINDS: Set<lua.SyntaxKind> = new Set(
@@ -101,8 +103,10 @@ const STATEMENT_KINDS: Set<lua.SyntaxKind> = new Set(
 			[lua.SyntaxKind.NumericForStatement]: true,
 			[lua.SyntaxKind.ForStatement]: true,
 			[lua.SyntaxKind.FunctionDeclaration]: true,
+			[lua.SyntaxKind.MethodDeclaration]: true,
 			[lua.SyntaxKind.VariableDeclaration]: true,
 			[lua.SyntaxKind.ReturnStatement]: true,
+			[lua.SyntaxKind.Comment]: true,
 		}),
 	),
 );

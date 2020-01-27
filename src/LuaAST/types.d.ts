@@ -57,7 +57,7 @@ export interface PropertyAccessExpression extends lua.Expression<lua.SyntaxKind.
 }
 
 export interface CallExpression extends lua.Expression<lua.SyntaxKind.CallExpression> {
-	expression: lua.Expression;
+	expression: lua.IndexableExpression;
 	params: lua.List<lua.Expression>;
 }
 

@@ -87,7 +87,10 @@ export function varDec(name: string, value: lua.Expression) {
 
 export function call(expression: lua.Expression, params: lua.Expression[]) {
 	return lua.create(lua.SyntaxKind.CallStatement, {
-		expression: lua.create(lua.SyntaxKind.CallExpression, { expression, params: lua.list.make(...params) }),
+		expression: lua.create(lua.SyntaxKind.CallExpression, {
+			expression: lua.isIndexableExpression(expression) ? expression : lua.parentheses(expression),
+			params: lua.list.make(...params),
+		}),
 	});
 }
 

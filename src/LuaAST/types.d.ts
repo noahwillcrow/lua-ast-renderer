@@ -125,7 +125,7 @@ export interface FunctionDeclaration extends lua.Statement<lua.SyntaxKind.Functi
 	statements: lua.List<lua.Statement>;
 }
 
-export interface MethodDeclaration extends lua.Statement<lua.SyntaxKind.FunctionDeclaration>, HasArguments {
+export interface MethodDeclaration extends lua.Statement<lua.SyntaxKind.MethodDeclaration>, HasArguments {
 	expression: lua.IndexableExpression;
 	name: lua.Identifier;
 	statements: lua.List<lua.Statement>;
@@ -138,6 +138,10 @@ export interface VariableDeclaration extends lua.Statement<lua.SyntaxKind.Variab
 
 export interface ReturnStatement extends lua.Statement<lua.SyntaxKind.ReturnStatement> {
 	expression: lua.Expression;
+}
+
+export interface Comment extends lua.Statement<lua.SyntaxKind.Comment> {
+	text: string;
 }
 
 // fields

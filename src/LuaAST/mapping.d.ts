@@ -32,8 +32,10 @@ export interface StatementByKind {
 	[lua.SyntaxKind.NumericForStatement]: lua.NumericForStatement;
 	[lua.SyntaxKind.ForStatement]: lua.ForStatement;
 	[lua.SyntaxKind.FunctionDeclaration]: lua.FunctionDeclaration;
+	[lua.SyntaxKind.MethodDeclaration]: lua.MethodDeclaration;
 	[lua.SyntaxKind.VariableDeclaration]: lua.VariableDeclaration;
 	[lua.SyntaxKind.ReturnStatement]: lua.ReturnStatement;
+	[lua.SyntaxKind.Comment]: lua.Comment;
 }
 
 export interface FieldByKind {

@@ -62,6 +62,22 @@ export function funcDec(
 	});
 }
 
+export function methodDec(
+	expression: lua.IndexableExpression,
+	name: string,
+	args: lua.List<lua.Identifier> = {},
+	hasVarArgs: boolean,
+	statements: lua.List<lua.Statement> = {},
+) {
+	return lua.create(lua.SyntaxKind.MethodDeclaration, {
+		expression,
+		name: lua.create(lua.SyntaxKind.Identifier, { name }),
+		args,
+		hasVarArgs,
+		statements,
+	});
+}
+
 export function varDec(name: string, value: lua.Expression) {
 	return lua.create(lua.SyntaxKind.VariableDeclaration, {
 		id: lua.id(name),
@@ -108,4 +124,8 @@ export function whileDo(condition: lua.Expression, statements: lua.List<lua.Stat
 		condition,
 		statements,
 	});
+}
+
+export function comment(text: string) {
+	return lua.create(lua.SyntaxKind.Comment, { text });
 }

@@ -93,7 +93,7 @@ export interface Assignment extends lua.Statement<lua.SyntaxKind.Assignment> {
 }
 
 export interface CallStatement extends lua.Statement<lua.SyntaxKind.CallStatement> {
-	expression: lua.CallExpression;
+	expression: lua.CallExpression | lua.MethodCallExpression;
 }
 
 export interface DoStatement extends lua.Statement<lua.SyntaxKind.DoStatement> {

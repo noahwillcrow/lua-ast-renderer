@@ -95,10 +95,12 @@ export function call(expression: lua.Expression, params: lua.Expression[]) {
 }
 
 export function methodCall(expression: lua.Expression, methodName: string, params: lua.Expression[]) {
-	return lua.create(lua.SyntaxKind.MethodCallExpression, {
-		expression: lua.isIndexableExpression(expression) ? expression : lua.parentheses(expression),
-		name: lua.id(methodName),
-		params: lua.list.make(...params),
+	return lua.create(lua.SyntaxKind.CallStatement, {
+		expression: lua.create(lua.SyntaxKind.MethodCallExpression, {
+			expression: lua.isIndexableExpression(expression) ? expression : lua.parentheses(expression),
+			name: lua.id(methodName),
+			params: lua.list.make(...params),
+		}),
 	});
 }
 

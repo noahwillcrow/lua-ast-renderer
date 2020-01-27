@@ -85,15 +85,15 @@ export function varDec(name: string, value: lua.Expression) {
 	});
 }
 
-export function call(expression: lua.IndexableExpression, params: lua.Expression[]) {
+export function call(expression: lua.Expression, params: lua.Expression[]) {
 	return lua.create(lua.SyntaxKind.CallStatement, {
 		expression: lua.create(lua.SyntaxKind.CallExpression, { expression, params: lua.list.make(...params) }),
 	});
 }
 
-export function methodCall(expression: lua.IndexableExpression, methodName: string, params: lua.Expression[]) {
+export function methodCall(expression: lua.Expression, methodName: string, params: lua.Expression[]) {
 	return lua.create(lua.SyntaxKind.MethodCallExpression, {
-		expression,
+		expression: lua.isIndexableExpression(expression) ? expression : lua.parentheses(expression),
 		name: lua.id(methodName),
 		params: lua.list.make(...params),
 	});

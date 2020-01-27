@@ -48,5 +48,7 @@ lua.list.push(ast, lua.call(lua.parentheses(lua.id("print")), []));
 
 lua.list.push(ast, lua.comment("foobar!"));
 
+lua.list.push(ast, lua.methodCall(lua.string("foo"), "bar", []));
+
 const luaSource = renderStatements(new RenderState(), ast);
 fs.writeFileSync(path.resolve(__dirname, "..", "out.lua"), luaSource);

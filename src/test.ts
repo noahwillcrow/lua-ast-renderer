@@ -1,26 +1,47 @@
-import { render } from "./render";
-import { RenderState } from "./RenderState";
-import lua from "./main";
 import * as fs from "fs";
 import * as path from "path";
+import * as lua from "./LuaAST";
+import { RenderState } from "./LuaRenderer/RenderState";
+import { renderStatements } from "./LuaRenderer/util/statements";
 
-const statements = new Array<lua.Statement>();
+const ast = lua.list.make<lua.Statement>();
 
-statements.push(lua.varDec("Workspace", lua.method(lua.id("game"), "GetService", [lua.string("Workspace")])));
+lua.list.push(ast, lua.varDec("Workspace", lua.methodCall(lua.id("game"), "GetService", [lua.string("Workspace")])));
 
-statements.push(
+lua.list.push(
+	ast,
 	lua.create(lua.SyntaxKind.IfStatement, {
 		condition: lua.bool(true),
-		body: lua.block([lua.call(lua.id("print"), [lua.number(1), lua.number(2), lua.number(3)])]),
-		elseIfs: [],
-		elseBody: undefined,
+		statements: lua.list.make(lua.call(lua.id("print"), [lua.number(1), lua.number(2), lua.number(3)])),
+		elseBody: lua.create(lua.SyntaxKind.IfStatement, {
+			condition: lua.bool(true),
+			statements: lua.list.make(lua.call(lua.id("print"), [lua.number(1), lua.number(2), lua.number(3)])),
+			elseBody: lua.create(lua.SyntaxKind.IfStatement, {
+				condition: lua.bool(true),
+				statements: lua.list.make(lua.call(lua.id("print"), [lua.number(1), lua.number(2), lua.number(3)])),
+				elseBody: lua.list.make(lua.call(lua.id("print"), [lua.number(1), lua.number(2), lua.number(3)])),
+			}),
+		}),
 	}),
 );
 
-statements.push(
-	lua.whileDo(lua.bool(true), [lua.call(lua.id("print"), [lua.number(1), lua.number(2), lua.number(3)])]),
+lua.list.push(
+	ast,
+	lua.whileDo(
+		lua.bool(true),
+		lua.list.make(lua.call(lua.id("print"), [lua.number(1), lua.number(2), lua.number(3)])),
+	),
 );
 
-const luaSource = render(new RenderState(), lua.block(statements));
+lua.list.push(
+	ast,
+	lua.funcDec(
+		"foo",
+		lua.list.make(lua.id("bar")),
+		false,
+		lua.list.make(lua.varDec("Workspace", lua.methodCall(lua.id("game"), "GetService", [lua.string("Workspace")]))),
+	),
+);
 
+const luaSource = renderStatements(new RenderState(), ast);
 fs.writeFileSync(path.resolve(__dirname, "..", "out.lua"), luaSource);

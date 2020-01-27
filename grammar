@@ -1,55 +1,75 @@
-chunk ::= {stat [`;´]} [laststat[`;´]]
 
-block ::= chunk
+string ::= '"' /[^"]/ '"'
 
-stat ::=  varlist1 `=´ explist1  |
-			functioncall  |
-			do block end  |
-			while exp do block end  |
-			repeat block until exp  |
-			if exp then block {elseif exp then block} [else block] end  |
-			for Name `=´ exp `,´ exp [`,´ exp] do block end  |
-			for namelist in explist1 do block end  |
-			function funcname funcbody  |
-			local function Name funcbody  |
-			local namelist [`=´ explist1]
+block ::= {statement [';']} [lastStatement[';']]
 
-laststat ::= return [explist1]  |  break
+expression ::=
+	| 'nil'
+	| 'false'
+	| 'true'
+	| number
+	| string
+	| '...'
+	| function
+	| prefixExpression
+	| tableLiteral
+	| expression binaryOperator expression
+	| unaryOperator expression
 
-funcname ::= Name {`.´ Name} [`:´ Name]
+statement ::=
+	| identifier {',' identifier} '=' expressionList
+	| callExpression
+	| 'do' block 'end'
+	| 'while' expression 'do' block 'end'
+	| repeat block until expression
+	| if expression then block {elseif expression then block} [else block] 'end'
+	| 'for' name '=' expression ',' expression [',' expression] 'do' block 'end'
+	| for nameList in expressionList do block end
+	| function name {'.' name} [':' name] funcBody
+	| local function name funcBody
+	| local nameList ['=' expressionList]
 
-varlist1 ::= var {`,´ var}
+lastStatement ::= return [expressionList] | break
 
-var ::=  Name  |  prefixexp `[´ exp `]´  |  prefixexp `.´ Name
+identifier ::=  name | prefixExpression '[' expression ']' | prefixExpression '.' name
 
-namelist ::= Name {`,´ Name}
+nameList ::= name {',' name}
 
-explist1 ::= {exp `,´} exp
+expressionList ::= {expression ','} expression
 
-exp ::=  nil  |  false  |  true  |  Number  |  String  |  `...´  | function  |  prefixexp  |  tableconstructor  |  exp binop exp  |  unop exp
+prefixExpression ::= identifier | callExpression | '(' expression ')'
 
-prefixexp ::= var  |  functioncall  |  `(´ exp `)´
+callExpression ::=  prefixExpression args | prefixExpression ':' name args
 
-functioncall ::=  prefixexp args  |  prefixexp `:´ Name args
+args ::=  '(' [expressionList] ')' | tableLiteral  | string
 
-args ::=  `(´ [explist1] `)´  |  tableconstructor  |  String
+function ::= function funcBody
 
-function ::= function funcbody
+funcBody ::= '(' [parlist1] ')' block end
 
-funcbody ::= `(´ [parlist1] `)´ block end
+parlist1 ::= nameList [',' '...'] | '...'
 
-parlist1 ::= namelist [`,´ `...´]  |  `...´
+tableLiteral ::= '{' [fieldlist] '}'
 
-tableconstructor ::= `{´ [fieldlist] `}´
+fieldlist ::= field ',' { field ',' }
 
-fieldlist ::= field {fieldsep field} [fieldsep]
+field ::= '[' expression ']' '=' expression | name '=' expression | expression
 
-field ::= `[´ exp `]´ `=´ exp  |  Name `=´ exp  |  exp
+binaryOperator ::=
+	| '+'
+	| '-'
+	| '*'
+	| '/'
+	| '^'
+	| '%'
+	| '..'
+	| '<'
+	| '<='
+	| '>'
+	| '>='
+	| '=='
+	| '~='
+	| and
+	| or
 
-fieldsep ::= `,´  |  `;´
-
-binop ::= `+´  |  `-´  |  `*´  |  `/´  |  `^´  |  `%´  |  `..´  |
-			`<´  |  `<=´  |  `>´  |  `>=´  |  `==´  |  `~=´  |
-			and  |  or
-
-unop ::= `-´  |  not  |  `#´
+unaryOperator ::= '-' | not | '#'

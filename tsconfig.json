@@ -8,6 +8,7 @@
 		"noFallthroughCasesInSwitch": true,
 		"strictNullChecks": true,
 		"noUnusedLocals": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"sourceMap": true
 	}
 }

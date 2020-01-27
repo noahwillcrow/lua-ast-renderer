@@ -1,0 +1,710 @@
+{
+  head: <ref *10> {
+    value: {
+      kind: 109,
+      id: { kind: 7, name: 'Workspace' },
+      value: {
+        kind: 11,
+        expression: { kind: 7, name: 'game' },
+        name: { kind: 7, name: 'GetService' },
+        params: {
+          head: { value: { kind: 4, value: 'Workspace' } },
+          tail: { value: { kind: 4, value: 'Workspace' } }
+        }
+      }
+    },
+    next: <ref *14> {
+      value: {
+        kind: 105,
+        condition: { kind: 2 },
+        statements: {
+          head: {
+            value: {
+              kind: 101,
+              expression: {
+                kind: 10,
+                expression: { kind: 7, name: 'print' },
+                params: {
+                  head: <ref *1> {
+                    value: { kind: 3, value: 1 },
+                    next: <ref *2> {
+                      value: { kind: 3, value: 2 },
+                      prev: [Circular *1],
+                      next: {
+                        value: { kind: 3, value: 3 },
+                        prev: [Circular *2]
+                      }
+                    }
+                  },
+                  tail: <ref *3> {
+                    value: { kind: 3, value: 3 },
+                    prev: <ref *2> {
+                      value: { kind: 3, value: 2 },
+                      prev: <ref *1> {
+                        value: { kind: 3, value: 1 },
+                        next: [Circular *2]
+                      },
+                      next: [Circular *3]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          tail: {
+            value: {
+              kind: 101,
+              expression: {
+                kind: 10,
+                expression: { kind: 7, name: 'print' },
+                params: {
+                  head: <ref *1> {
+                    value: { kind: 3, value: 1 },
+                    next: <ref *2> {
+                      value: { kind: 3, value: 2 },
+                      prev: [Circular *1],
+                      next: <ref *3> {
+                        value: { kind: 3, value: 3 },
+                        prev: [Circular *2]
+                      }
+                    }
+                  },
+                  tail: <ref *3> {
+                    value: { kind: 3, value: 3 },
+                    prev: <ref *2> {
+                      value: { kind: 3, value: 2 },
+                      prev: <ref *1> {
+                        value: { kind: 3, value: 1 },
+                        next: [Circular *2]
+                      },
+                      next: [Circular *3]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        elseBody: {
+          kind: 105,
+          condition: { kind: 2 },
+          statements: {
+            head: {
+              value: {
+                kind: 101,
+                expression: {
+                  kind: 10,
+                  expression: { kind: 7, name: 'print' },
+                  params: {
+                    head: <ref *4> {
+                      value: { kind: 3, value: 1 },
+                      next: <ref *5> {
+                        value: { kind: 3, value: 2 },
+                        prev: [Circular *4],
+                        next: {
+                          value: { kind: 3, value: 3 },
+                          prev: [Circular *5]
+                        }
+                      }
+                    },
+                    tail: <ref *6> {
+                      value: { kind: 3, value: 3 },
+                      prev: <ref *5> {
+                        value: { kind: 3, value: 2 },
+                        prev: <ref *4> {
+                          value: { kind: 3, value: 1 },
+                          next: [Circular *5]
+                        },
+                        next: [Circular *6]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            tail: {
+              value: {
+                kind: 101,
+                expression: {
+                  kind: 10,
+                  expression: { kind: 7, name: 'print' },
+                  params: {
+                    head: <ref *4> {
+                      value: { kind: 3, value: 1 },
+                      next: <ref *5> {
+                        value: { kind: 3, value: 2 },
+                        prev: [Circular *4],
+                        next: <ref *6> {
+                          value: { kind: 3, value: 3 },
+                          prev: [Circular *5]
+                        }
+                      }
+                    },
+                    tail: <ref *6> {
+                      value: { kind: 3, value: 3 },
+                      prev: <ref *5> {
+                        value: { kind: 3, value: 2 },
+                        prev: <ref *4> {
+                          value: { kind: 3, value: 1 },
+                          next: [Circular *5]
+                        },
+                        next: [Circular *6]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          elseBody: {
+            kind: 105,
+            condition: { kind: 2 },
+            statements: {
+              head: {
+                value: {
+                  kind: 101,
+                  expression: {
+                    kind: 10,
+                    expression: { kind: 7, name: 'print' },
+                    params: {
+                      head: <ref *7> {
+                        value: { kind: 3, value: 1 },
+                        next: <ref *8> {
+                          value: { kind: 3, value: 2 },
+                          prev: [Circular *7],
+                          next: {
+                            value: { kind: 3, value: 3 },
+                            prev: [Circular *8]
+                          }
+                        }
+                      },
+                      tail: <ref *9> {
+                        value: { kind: 3, value: 3 },
+                        prev: <ref *8> {
+                          value: { kind: 3, value: 2 },
+                          prev: <ref *7> {
+                            value: { kind: 3, value: 1 },
+                            next: [Circular *8]
+                          },
+                          next: [Circular *9]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              tail: {
+                value: {
+                  kind: 101,
+                  expression: {
+                    kind: 10,
+                    expression: { kind: 7, name: 'print' },
+                    params: {
+                      head: <ref *7> {
+                        value: { kind: 3, value: 1 },
+                        next: <ref *8> {
+                          value: { kind: 3, value: 2 },
+                          prev: [Circular *7],
+                          next: <ref *9> {
+                            value: { kind: 3, value: 3 },
+                            prev: [Circular *8]
+                          }
+                        }
+                      },
+                      tail: <ref *9> {
+                        value: { kind: 3, value: 3 },
+                        prev: <ref *8> {
+                          value: { kind: 3, value: 2 },
+                          prev: <ref *7> {
+                            value: { kind: 3, value: 1 },
+                            next: [Circular *8]
+                          },
+                          next: [Circular *9]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            elseBody: {}
+          }
+        }
+      },
+      prev: [Circular *10],
+      next: <ref *15> {
+        value: {
+          kind: 103,
+          condition: { kind: 2 },
+          statements: {
+            head: {
+              value: {
+                kind: 101,
+                expression: {
+                  kind: 10,
+                  expression: { kind: 7, name: 'print' },
+                  params: {
+                    head: <ref *11> {
+                      value: { kind: 3, value: 1 },
+                      next: <ref *12> {
+                        value: { kind: 3, value: 2 },
+                        prev: [Circular *11],
+                        next: {
+                          value: { kind: 3, value: 3 },
+                          prev: [Circular *12]
+                        }
+                      }
+                    },
+                    tail: <ref *13> {
+                      value: { kind: 3, value: 3 },
+                      prev: <ref *12> {
+                        value: { kind: 3, value: 2 },
+                        prev: <ref *11> {
+                          value: { kind: 3, value: 1 },
+                          next: [Circular *12]
+                        },
+                        next: [Circular *13]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            tail: {
+              value: {
+                kind: 101,
+                expression: {
+                  kind: 10,
+                  expression: { kind: 7, name: 'print' },
+                  params: {
+                    head: <ref *11> {
+                      value: { kind: 3, value: 1 },
+                      next: <ref *12> {
+                        value: { kind: 3, value: 2 },
+                        prev: [Circular *11],
+                        next: <ref *13> {
+                          value: { kind: 3, value: 3 },
+                          prev: [Circular *12]
+                        }
+                      }
+                    },
+                    tail: <ref *13> {
+                      value: { kind: 3, value: 3 },
+                      prev: <ref *12> {
+                        value: { kind: 3, value: 2 },
+                        prev: <ref *11> {
+                          value: { kind: 3, value: 1 },
+                          next: [Circular *12]
+                        },
+                        next: [Circular *13]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        prev: [Circular *14],
+        next: {
+          value: {
+            kind: 108,
+            name: { kind: 7, name: 'foo' },
+            args: {
+              head: { value: { kind: 7, name: 'bar' } },
+              tail: { value: { kind: 7, name: 'bar' } }
+            },
+            hasVarArgs: false,
+            statements: {
+              head: {
+                value: {
+                  kind: 109,
+                  id: { kind: 7, name: 'Workspace' },
+                  value: {
+                    kind: 11,
+                    expression: { kind: 7, name: 'game' },
+                    name: { kind: 7, name: 'GetService' },
+                    params: {
+                      head: { value: { kind: 4, value: 'Workspace' } },
+                      tail: { value: { kind: 4, value: 'Workspace' } }
+                    }
+                  }
+                }
+              },
+              tail: {
+                value: {
+                  kind: 109,
+                  id: { kind: 7, name: 'Workspace' },
+                  value: {
+                    kind: 11,
+                    expression: { kind: 7, name: 'game' },
+                    name: { kind: 7, name: 'GetService' },
+                    params: {
+                      head: { value: { kind: 4, value: 'Workspace' } },
+                      tail: { value: { kind: 4, value: 'Workspace' } }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          prev: [Circular *15]
+        }
+      }
+    }
+  },
+  tail: <ref *16> {
+    value: {
+      kind: 108,
+      name: { kind: 7, name: 'foo' },
+      args: {
+        head: { value: { kind: 7, name: 'bar' } },
+        tail: { value: { kind: 7, name: 'bar' } }
+      },
+      hasVarArgs: false,
+      statements: {
+        head: {
+          value: {
+            kind: 109,
+            id: { kind: 7, name: 'Workspace' },
+            value: {
+              kind: 11,
+              expression: { kind: 7, name: 'game' },
+              name: { kind: 7, name: 'GetService' },
+              params: {
+                head: { value: { kind: 4, value: 'Workspace' } },
+                tail: { value: { kind: 4, value: 'Workspace' } }
+              }
+            }
+          }
+        },
+        tail: {
+          value: {
+            kind: 109,
+            id: { kind: 7, name: 'Workspace' },
+            value: {
+              kind: 11,
+              expression: { kind: 7, name: 'game' },
+              name: { kind: 7, name: 'GetService' },
+              params: {
+                head: { value: { kind: 4, value: 'Workspace' } },
+                tail: { value: { kind: 4, value: 'Workspace' } }
+              }
+            }
+          }
+        }
+      }
+    },
+    prev: <ref *15> {
+      value: {
+        kind: 103,
+        condition: { kind: 2 },
+        statements: {
+          head: {
+            value: {
+              kind: 101,
+              expression: {
+                kind: 10,
+                expression: { kind: 7, name: 'print' },
+                params: {
+                  head: <ref *11> {
+                    value: { kind: 3, value: 1 },
+                    next: <ref *12> {
+                      value: { kind: 3, value: 2 },
+                      prev: [Circular *11],
+                      next: <ref *13> {
+                        value: { kind: 3, value: 3 },
+                        prev: [Circular *12]
+                      }
+                    }
+                  },
+                  tail: <ref *13> {
+                    value: { kind: 3, value: 3 },
+                    prev: <ref *12> {
+                      value: { kind: 3, value: 2 },
+                      prev: <ref *11> {
+                        value: { kind: 3, value: 1 },
+                        next: [Circular *12]
+                      },
+                      next: [Circular *13]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          tail: {
+            value: {
+              kind: 101,
+              expression: {
+                kind: 10,
+                expression: { kind: 7, name: 'print' },
+                params: {
+                  head: <ref *11> {
+                    value: { kind: 3, value: 1 },
+                    next: <ref *12> {
+                      value: { kind: 3, value: 2 },
+                      prev: [Circular *11],
+                      next: <ref *13> {
+                        value: { kind: 3, value: 3 },
+                        prev: [Circular *12]
+                      }
+                    }
+                  },
+                  tail: <ref *13> {
+                    value: { kind: 3, value: 3 },
+                    prev: <ref *12> {
+                      value: { kind: 3, value: 2 },
+                      prev: <ref *11> {
+                        value: { kind: 3, value: 1 },
+                        next: [Circular *12]
+                      },
+                      next: [Circular *13]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      prev: <ref *14> {
+        value: {
+          kind: 105,
+          condition: { kind: 2 },
+          statements: {
+            head: {
+              value: {
+                kind: 101,
+                expression: {
+                  kind: 10,
+                  expression: { kind: 7, name: 'print' },
+                  params: {
+                    head: <ref *1> {
+                      value: { kind: 3, value: 1 },
+                      next: <ref *2> {
+                        value: { kind: 3, value: 2 },
+                        prev: [Circular *1],
+                        next: <ref *3> {
+                          value: { kind: 3, value: 3 },
+                          prev: [Circular *2]
+                        }
+                      }
+                    },
+                    tail: <ref *3> {
+                      value: { kind: 3, value: 3 },
+                      prev: <ref *2> {
+                        value: { kind: 3, value: 2 },
+                        prev: <ref *1> {
+                          value: { kind: 3, value: 1 },
+                          next: [Circular *2]
+                        },
+                        next: [Circular *3]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            tail: {
+              value: {
+                kind: 101,
+                expression: {
+                  kind: 10,
+                  expression: { kind: 7, name: 'print' },
+                  params: {
+                    head: <ref *1> {
+                      value: { kind: 3, value: 1 },
+                      next: <ref *2> {
+                        value: { kind: 3, value: 2 },
+                        prev: [Circular *1],
+                        next: <ref *3> {
+                          value: { kind: 3, value: 3 },
+                          prev: [Circular *2]
+                        }
+                      }
+                    },
+                    tail: <ref *3> {
+                      value: { kind: 3, value: 3 },
+                      prev: <ref *2> {
+                        value: { kind: 3, value: 2 },
+                        prev: <ref *1> {
+                          value: { kind: 3, value: 1 },
+                          next: [Circular *2]
+                        },
+                        next: [Circular *3]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          elseBody: {
+            kind: 105,
+            condition: { kind: 2 },
+            statements: {
+              head: {
+                value: {
+                  kind: 101,
+                  expression: {
+                    kind: 10,
+                    expression: { kind: 7, name: 'print' },
+                    params: {
+                      head: <ref *4> {
+                        value: { kind: 3, value: 1 },
+                        next: <ref *5> {
+                          value: { kind: 3, value: 2 },
+                          prev: [Circular *4],
+                          next: <ref *6> {
+                            value: { kind: 3, value: 3 },
+                            prev: [Circular *5]
+                          }
+                        }
+                      },
+                      tail: <ref *6> {
+                        value: { kind: 3, value: 3 },
+                        prev: <ref *5> {
+                          value: { kind: 3, value: 2 },
+                          prev: <ref *4> {
+                            value: { kind: 3, value: 1 },
+                            next: [Circular *5]
+                          },
+                          next: [Circular *6]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              tail: {
+                value: {
+                  kind: 101,
+                  expression: {
+                    kind: 10,
+                    expression: { kind: 7, name: 'print' },
+                    params: {
+                      head: <ref *4> {
+                        value: { kind: 3, value: 1 },
+                        next: <ref *5> {
+                          value: { kind: 3, value: 2 },
+                          prev: [Circular *4],
+                          next: <ref *6> {
+                            value: { kind: 3, value: 3 },
+                            prev: [Circular *5]
+                          }
+                        }
+                      },
+                      tail: <ref *6> {
+                        value: { kind: 3, value: 3 },
+                        prev: <ref *5> {
+                          value: { kind: 3, value: 2 },
+                          prev: <ref *4> {
+                            value: { kind: 3, value: 1 },
+                            next: [Circular *5]
+                          },
+                          next: [Circular *6]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            elseBody: {
+              kind: 105,
+              condition: { kind: 2 },
+              statements: {
+                head: {
+                  value: {
+                    kind: 101,
+                    expression: {
+                      kind: 10,
+                      expression: { kind: 7, name: 'print' },
+                      params: {
+                        head: <ref *7> {
+                          value: { kind: 3, value: 1 },
+                          next: <ref *8> {
+                            value: { kind: 3, value: 2 },
+                            prev: [Circular *7],
+                            next: <ref *9> {
+                              value: { kind: 3, value: 3 },
+                              prev: [Circular *8]
+                            }
+                          }
+                        },
+                        tail: <ref *9> {
+                          value: { kind: 3, value: 3 },
+                          prev: <ref *8> {
+                            value: { kind: 3, value: 2 },
+                            prev: <ref *7> {
+                              value: { kind: 3, value: 1 },
+                              next: [Circular *8]
+                            },
+                            next: [Circular *9]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                tail: {
+                  value: {
+                    kind: 101,
+                    expression: {
+                      kind: 10,
+                      expression: { kind: 7, name: 'print' },
+                      params: {
+                        head: <ref *7> {
+                          value: { kind: 3, value: 1 },
+                          next: <ref *8> {
+                            value: { kind: 3, value: 2 },
+                            prev: [Circular *7],
+                            next: <ref *9> {
+                              value: { kind: 3, value: 3 },
+                              prev: [Circular *8]
+                            }
+                          }
+                        },
+                        tail: <ref *9> {
+                          value: { kind: 3, value: 3 },
+                          prev: <ref *8> {
+                            value: { kind: 3, value: 2 },
+                            prev: <ref *7> {
+                              value: { kind: 3, value: 1 },
+                              next: [Circular *8]
+                            },
+                            next: [Circular *9]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              elseBody: {}
+            }
+          }
+        },
+        prev: <ref *10> {
+          value: {
+            kind: 109,
+            id: { kind: 7, name: 'Workspace' },
+            value: {
+              kind: 11,
+              expression: { kind: 7, name: 'game' },
+              name: { kind: 7, name: 'GetService' },
+              params: {
+                head: { value: { kind: 4, value: 'Workspace' } },
+                tail: { value: { kind: 4, value: 'Workspace' } }
+              }
+            }
+          },
+          next: [Circular *14]
+        },
+        next: [Circular *15]
+      },
+      next: [Circular *16]
+    }
+  }
+}

@@ -87,20 +87,28 @@ export function varDec(name: string, value: lua.Expression) {
 
 export function call(expression: lua.Expression, params: lua.Expression[]) {
 	return lua.create(lua.SyntaxKind.CallStatement, {
-		expression: lua.create(lua.SyntaxKind.CallExpression, {
-			expression: lua.isIndexableExpression(expression) ? expression : lua.parentheses(expression),
-			params: lua.list.make(...params),
-		}),
+		expression: lua.callExp(expression, params),
 	});
 }
 
 export function methodCall(expression: lua.Expression, methodName: string, params: lua.Expression[]) {
 	return lua.create(lua.SyntaxKind.CallStatement, {
-		expression: lua.create(lua.SyntaxKind.MethodCallExpression, {
-			expression: lua.isIndexableExpression(expression) ? expression : lua.parentheses(expression),
-			name: lua.id(methodName),
-			params: lua.list.make(...params),
-		}),
+		expression: lua.methodCallExp(expression, methodName, params),
+	});
+}
+
+export function callExp(expression: lua.Expression, params: lua.Expression[]) {
+	return lua.create(lua.SyntaxKind.CallExpression, {
+		expression: lua.isIndexableExpression(expression) ? expression : lua.parentheses(expression),
+		params: lua.list.make(...params),
+	});
+}
+
+export function methodCallExp(expression: lua.Expression, methodName: string, params: lua.Expression[]) {
+	return lua.create(lua.SyntaxKind.MethodCallExpression, {
+		expression: lua.isIndexableExpression(expression) ? expression : lua.parentheses(expression),
+		name: lua.id(methodName),
+		params: lua.list.make(...params),
 	});
 }
 

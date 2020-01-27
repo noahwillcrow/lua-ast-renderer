@@ -6,7 +6,7 @@ import { renderStatements } from "./LuaRenderer/util/statements";
 
 const ast = lua.list.make<lua.Statement>();
 
-lua.list.push(ast, lua.varDec("Workspace", lua.methodCall(lua.id("game"), "GetService", [lua.string("Workspace")])));
+lua.list.push(ast, lua.varDec("Workspace", lua.methodCallExp(lua.id("game"), "GetService", [lua.string("Workspace")])));
 
 lua.list.push(
 	ast,
@@ -39,7 +39,9 @@ lua.list.push(
 		"foo",
 		lua.list.make(lua.id("bar")),
 		false,
-		lua.list.make(lua.varDec("Workspace", lua.methodCall(lua.id("game"), "GetService", [lua.string("Workspace")]))),
+		lua.list.make(
+			lua.varDec("Workspace", lua.methodCallExp(lua.id("game"), "GetService", [lua.string("Workspace")])),
+		),
 	),
 );
 
